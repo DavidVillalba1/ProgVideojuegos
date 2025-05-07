@@ -1,0 +1,19 @@
+# Normaliza los finales de línea para archivos de texto
+* text=auto
+
+# Para archivos C#, shaders, y otros del proyecto Unity
+*.cs text eol=lf
+*.shader text eol=lf
+*.cginc text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.asmdef text eol=lf
+*.unity text eol=lf
+*.meta text eol=lf
+
+# Binarios o archivos que no deben modificarse
+*.png binary
+*.jpg binary
+*.fbx binary
+*.dll binary
