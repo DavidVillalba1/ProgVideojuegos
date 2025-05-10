@@ -6,12 +6,10 @@ public class GhostController : MonoBehaviour
 {
     public float velocidad = 5.0f;
     private Rigidbody rb;
-    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -23,14 +21,9 @@ public class GhostController : MonoBehaviour
 
         if(movimiento.magnitude > 0.1f)
         {
-            anim.SetBool("Run", true);
 
             Quaternion toRotation = Quaternion.LookRotation(movimiento, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 720 * Time.deltaTime);
-        }
-        else
-        {
-            anim.SetBool("Run", false);
         }
         rb.MovePosition(transform.position + movimiento.normalized * velocidad * Time.deltaTime);
     }
