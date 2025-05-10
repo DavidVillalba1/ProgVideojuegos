@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollower : MonoBehaviour
+public class GhostController : MonoBehaviour
 {
     public float velocidad = 5.0f;
     private Rigidbody rb;
