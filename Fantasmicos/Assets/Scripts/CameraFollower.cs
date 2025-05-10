@@ -2,16 +2,27 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
-    public Transform target;        // el objeto a seguir (tu fantasma)
-    public Vector3 offset = new Vector3(0f, 5f, -10f); // posición relativa a él
-    public float smoothSpeed = 0.125f; // suavizado
+    public Transform player;          // El jugador
+    public Vector3 offset = new Vector3(0, 5, -10); // Desplazamiento de la cámara
+    public float rotationSpeed = 5f;  // Velocidad de rotación de la cámara
 
-    void Update()
+    void LateUpdate()
     {
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+        if (player == null) return;
 
-        transform.LookAt(target);
+        // Rota la cámara alrededor del jugador
+        transform.position = player.position + offset;
+
+        // Hace que la cámara mire hacia el jugador
+        transform.LookAt(player);
+
+        // Controla la rotación de la cámara (opcional si quieres rotarla con el mouse)
+        if (Input.GetMouseButton(1)) // Solo rotar si el botón derecho está presionado
+        {
+            float horizontalInput = Input.GetAxis("Mouse X");
+
+            // Rota el jugador (y la cámara seguirá esa rotación)
+            player.Rotate(0, horizontalInput * rotationSpeed, 0);
+        }
     }
 }
