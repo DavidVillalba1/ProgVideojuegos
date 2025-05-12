@@ -22,6 +22,7 @@ public class PlayerMoney : MonoBehaviour
         {
             dinero += 10;
             ActualizarUI();
+            Destroy(other.gameObject);
         }
     }
 
