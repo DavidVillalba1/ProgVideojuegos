@@ -17,6 +17,7 @@ public class PlayerMoney : MonoBehaviour
         {
             dinero -= 10;
             ActualizarUI();
+            Destroy(other.gameObject);
         }
         else if (other.CompareTag("Friendly"))
         {
@@ -28,6 +29,6 @@ public class PlayerMoney : MonoBehaviour
 
     void ActualizarUI()
     {
-        moneyText.text = "Dinero: " + dinero.ToString();
+        moneyText.text = "Almas: " + dinero.ToString();
     }
 }

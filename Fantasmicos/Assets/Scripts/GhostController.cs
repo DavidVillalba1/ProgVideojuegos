@@ -22,20 +22,20 @@ public class GhostController : MonoBehaviour
         // Captura el input en Update (fluido y continuo)
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        // Rotar con A/D usando transform (más estable que con Rigidbody)
+        if (Mathf.Abs(horizontal) > 0.1f)
+        {
+            float rotationAmount = horizontal * rotationSpeed * Time.deltaTime;
+            transform.Rotate(0f, rotationAmount, 0f);
+        }
     }
 
     void FixedUpdate()
     {
-        // ROTAR con A/D
-        if (Mathf.Abs(horizontal) > 0.1f)
-        {
-            float rotationAmount = horizontal * rotationSpeed * Time.fixedDeltaTime;
-            Quaternion deltaRotation = Quaternion.Euler(0f, rotationAmount, 0f);
-            rb.MoveRotation(rb.rotation * deltaRotation);
-        }
-
-        // MOVER hacia adelante o atrás en la dirección del jugador
+        // Mover hacia adelante o atrás en la dirección del jugador
         Vector3 moveDirection = transform.forward * vertical;
+
         if (moveDirection.magnitude > 0.1f)
         {
             rb.MovePosition(rb.position + moveDirection.normalized * speed * Time.fixedDeltaTime);
