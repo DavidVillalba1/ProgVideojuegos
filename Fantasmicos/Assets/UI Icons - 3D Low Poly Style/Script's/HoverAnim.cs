@@ -7,6 +7,7 @@ namespace FWC
     {
 
         [SerializeField] float scaleChange = 1.1f;
+        public float originalScale;
 
         [SerializeField] AudioSource source;
 
@@ -23,7 +24,7 @@ namespace FWC
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = originalScale * Vector3.one;
 
         }
 
