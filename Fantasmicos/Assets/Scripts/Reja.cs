@@ -5,16 +5,16 @@ using UnityEngine;
 public class Reja : MonoBehaviour
 {
     public int requiredMoney = 100;
-    private GameObject reja;
+    public GameObject reja;
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            PlayerMoney playerMoney = other.GetComponent<PlayerMoney>();
+            PlayerMoney playerMoney = collision.gameObject.GetComponent<PlayerMoney>();
             if (playerMoney != null && playerMoney.dinero >= requiredMoney)
             {
-                reja.GetComponent<Collider>().enabled = false;
+                Physics.IgnoreCollision(collision.collider, reja.GetComponent<MeshCollider>());
             }
         }
     }

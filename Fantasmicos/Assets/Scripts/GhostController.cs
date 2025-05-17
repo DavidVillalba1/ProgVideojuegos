@@ -38,7 +38,9 @@ public class GhostController : MonoBehaviour
 
         if (moveDirection.magnitude > 0.1f)
         {
-            rb.MovePosition(rb.position + moveDirection.normalized * speed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + speed * Time.fixedDeltaTime * moveDirection.normalized);
         }
+        // Detener la inercia de rotación
+        rb.angularVelocity = Vector3.zero;
     }
 }

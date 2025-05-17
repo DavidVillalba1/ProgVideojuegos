@@ -11,19 +11,19 @@ public class PlayerMoney : MonoBehaviour
         ActualizarUI();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             dinero -= 10;
             ActualizarUI();
-            Destroy(other.gameObject);
+            //Destroy(collision.gameObject);
         }
-        else if (other.CompareTag("Friendly"))
+        else if (collision.gameObject.CompareTag("Friendly"))
         {
             dinero += 10;
             ActualizarUI();
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 
