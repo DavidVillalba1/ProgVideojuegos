@@ -5,33 +5,43 @@ namespace FWC
 {
     public class HoverAnim : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
     {
-
         [SerializeField] float scaleChange = 1.1f;
-        public float originalScale;
+        [SerializeField] AudioClip hoverClip; // clip asociado al botón
+        private Vector3 originalScale;
 
-        [SerializeField] AudioSource source;
+        private AudioSource sfxSource;
 
+        void Start()
+        {
+            originalScale = transform.localScale;
+
+            // Buscar el AudioSource global de efectos en el MenuManagerPropio
+            var manager = FindObjectOfType<MenuManagerPropio>();
+            if (manager != null)
+            {
+                sfxSource = manager.sfxSource;
+            }
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            transform.localScale *= scaleChange;
+            transform.localScale = originalScale * scaleChange;
 
-            if (source.clip == null) return;
-
-            source.PlayOneShot(source.clip);
-
+            if (hoverClip != null && sfxSource != null)
+            {
+                sfxSource.PlayOneShot(hoverClip);
+            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            transform.localScale = originalScale * Vector3.one;
-
+            transform.localScale = originalScale;
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = originalScale;
         }
     }
-
 }
+
