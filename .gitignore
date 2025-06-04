@@ -47,3 +47,4 @@ Build/
 # Plastic SCM
 .plastic/
 ignore.conf
+*.psd
