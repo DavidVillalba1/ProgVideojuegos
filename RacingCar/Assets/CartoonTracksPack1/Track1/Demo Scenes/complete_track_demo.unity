@@ -7798,9 +7798,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799856543}
   m_Mesh: {fileID: 4941019111839346449, guid: 7190964c445f2324f9f142d693d3a05c, type: 3}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 --- !u!1 &1817236226
 GameObject:
@@ -8581,21 +8578,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100016, guid: 62d38c3b81a175f4585f3bb99fca3071, type: 3}
       insertIndex: -1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
       addedObject: {fileID: 1946838983}
     - targetCorrespondingSourceObject: {fileID: 100016, guid: 62d38c3b81a175f4585f3bb99fca3071, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1946838984}
 =======
-=======
->>>>>>> Stashed changes
       addedObject: {fileID: 1946838980}
     - targetCorrespondingSourceObject: {fileID: 100016, guid: 62d38c3b81a175f4585f3bb99fca3071, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1946838981}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
   m_SourcePrefab: {fileID: 100100000, guid: 62d38c3b81a175f4585f3bb99fca3071, type: 3}
 --- !u!1 &1946838978 stripped
@@ -8625,13 +8616,8 @@ BoxCollider:
   m_Size: {x: 1.187519, y: 0.5419588, z: 3.3035502}
   m_Center: {x: 0.013632595, y: 0.2290206, z: -0.14419293}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!54 &1946838983
 Rigidbody:
-=======
---- !u!195 &1946838980
-NavMeshAgent:
->>>>>>> Stashed changes
 =======
 --- !u!195 &1946838980
 NavMeshAgent:
@@ -8641,7 +8627,6 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946838978}
-<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   serializedVersion: 4
   m_Mass: 10000000
@@ -8665,8 +8650,6 @@ NavMeshAgent:
   m_CollisionDetection: 0
 --- !u!114 &1946838984
 =======
-=======
->>>>>>> Stashed changes
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
@@ -8683,9 +8666,6 @@ NavMeshAgent:
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1946838981
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8696,7 +8676,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 86a5b2f7fb1951f4aad17f64e0c8f4e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -8706,8 +8685,6 @@ MonoBehaviour:
   reverseSpeed: 10
   followCamera: {fileID: 354533037}
 =======
-=======
->>>>>>> Stashed changes
   m_Script: {fileID: 11500000, guid: 9919ac225243bd344afd61e26fa80e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -9653,9 +9630,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145425215}
   m_Mesh: {fileID: 4941019111839346449, guid: 7190964c445f2324f9f142d693d3a05c, type: 3}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 --- !u!1001 &69159637753338265
 PrefabInstance:
