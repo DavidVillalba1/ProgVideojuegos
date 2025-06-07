@@ -10266,11 +10266,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a5b2f7fb1951f4aad17f64e0c8f4e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 2000
-  brakingForce: 6000
-  turnSpeed: 50
-  reverseSpeed: 1000
-  accelerationTime: 10
+  accelerateKey: 323
+  brakeKey: 324
+  reverseKey: 122
+  turnLeftKey: 97
+  turnRightKey: 100
+  acceleration: 10
+  brakingDrag: 0.3
+  normalDrag: 0.05
+  turnSpeed: 70
+  reverseSpeed: 5
+  maxSpeed: 35
+  accelerationSmoothing: 3.5
+  downforce: 50
   followCamera: {fileID: 354533037}
 --- !u!1 &1950741563
 GameObject:

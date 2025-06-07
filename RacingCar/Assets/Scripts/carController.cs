@@ -1,15 +1,31 @@
 using UnityEngine;
 
-public class carController : MonoBehaviour
+public class CarController : MonoBehaviour
 {
+    [Header("Control")]
+    public KeyCode accelerateKey = KeyCode.W;
+    public KeyCode brakeKey = KeyCode.S;
+    public KeyCode reverseKey = KeyCode.Z;
+    public KeyCode turnLeftKey = KeyCode.A;
+    public KeyCode turnRightKey = KeyCode.D;
+
+    [Header("Fuerzas")]
     public float acceleration = 20f;
-    public float brakingForce = 30f;
+    public float brakingDrag = 2f;
+    public float normalDrag = 0.05f;
     public float turnSpeed = 50f;
     public float reverseSpeed = 10f;
+    public float maxSpeed = 50f;
+    public float accelerationSmoothing = 2f; // Qué tan rápido acelera progresivamente
 
+    [Header("Downforce")]
+    public float downforce = 50f;
+
+    [Header("Cámara")]
     public Camera followCamera;
 
     private Rigidbody rb;
+    private float currentAcceleration = 0f;
 
     void Start()
     {
@@ -17,7 +33,7 @@ public class carController : MonoBehaviour
 
         if (followCamera == null)
         {
-            Debug.LogError("No camera assigned to follow the car!");
+            Debug.LogWarning("No camera assigned to follow the car.");
         }
     }
 
@@ -27,68 +43,78 @@ public class carController : MonoBehaviour
         HandleCamera();
         ApplyGrip();
     }
+    
+
+    void FixedUpdate()
+    {
+        ApplyDownforce();
+    }
+
+    private void ApplyDownforce()
+    {
+        rb.AddForce(-transform.up * downforce * rb.velocity.magnitude);
+    }
+
 
     private void HandleMovement()
     {
-        // Velocidad actual del coche
         float currentSpeed = Vector3.Dot(rb.velocity, transform.forward);
 
-        // Acelerar
-        if (Input.GetMouseButton(1)) // Botón derecho del ratón
+        // Aceleración progresiva
+        if (Input.GetKey(accelerateKey))
         {
-            rb.AddForce(transform.forward * acceleration, ForceMode.Acceleration);
+            currentAcceleration = Mathf.Lerp(currentAcceleration, acceleration, Time.deltaTime * accelerationSmoothing);
+            rb.AddForce(-transform.forward * currentAcceleration, ForceMode.Acceleration);
+        }
+        else
+        {
+            currentAcceleration = 0f;
         }
 
-        // Frenar
-        if (Input.GetMouseButton(0)) // Botón izquierdo del ratón
+        // Frenar (drag)
+        if (Input.GetKey(brakeKey))
         {
-            rb.AddForce(-transform.forward * brakingForce, ForceMode.Acceleration);
+            rb.drag = brakingDrag;
+        }
+        else
+        {
+            rb.drag = normalDrag;
         }
 
         // Marcha atrás
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(reverseKey))
         {
-            rb.AddForce(-transform.forward * reverseSpeed, ForceMode.Acceleration);
+            rb.AddForce(transform.forward * reverseSpeed, ForceMode.Acceleration);
         }
 
         // Girar
         float turn = 0f;
-        if (Input.GetKey(KeyCode.A))
-        {
-            turn = -turnSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            turn = turnSpeed * Time.deltaTime;
-        }
+        if (Input.GetKey(turnLeftKey)) turn = -turnSpeed * Time.deltaTime;
+        if (Input.GetKey(turnRightKey)) turn = turnSpeed * Time.deltaTime;
 
-        // Aplicar giro solo si el coche está en movimiento
-        if (currentSpeed > 0.1f || currentSpeed < -0.1f)
+        if (Mathf.Abs(currentSpeed) > 0.1f)
         {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0, turn, 0));
         }
 
-        // Limitar la velocidad máxima
-        float maxSpeed = 50f; // Ajusta este valor según lo necesites
+        // Limitar velocidad máxima
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
+
     private void HandleCamera()
     {
-        if (followCamera != null)
-        {
-            // Make the camera follow the car
-            followCamera.transform.position = transform.position + transform.forward * 7f + Vector3.up * 3f;
+        if (followCamera == null) return;
 
-            // Make the camera look at the car's forward direction
-            followCamera.transform.LookAt(transform.position + transform.forward * 5f + Vector3.up * 2f);
-        }
+        followCamera.transform.position = transform.position + transform.forward * 7f + Vector3.up * 3f;
+        followCamera.transform.LookAt(transform.position + transform.forward * 5f + Vector3.up * 2f);
     }
-        private void ApplyGrip()
+
+    private void ApplyGrip()
     {
         Vector3 lateralVelocity = Vector3.Dot(rb.velocity, transform.right) * transform.right;
-        rb.AddForce(-lateralVelocity * 5f, ForceMode.Acceleration); // Ajusta el factor 5f según sea necesario
+        rb.AddForce(-lateralVelocity * 5f, ForceMode.Acceleration);
     }
 }
