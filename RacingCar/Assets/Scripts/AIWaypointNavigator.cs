@@ -18,6 +18,8 @@ public class AIWaypointNavigator : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         SetNextTarget();
+        agent.updateRotation = false;
+
     }
 
     void Update()
@@ -31,7 +33,16 @@ public class AIWaypointNavigator : MonoBehaviour
             currentSection = (currentSection + 1) % trackSections.Count;
             SetNextTarget();
         }
+
+        // Movimiento estilo coche: rotación suave hacia la dirección de movimiento
+        Vector3 direction = agent.desiredVelocity.normalized;
+        if (direction.sqrMagnitude > 0.1f)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 3f);
+        }
     }
+
 
     void SetNextTarget()
     {
