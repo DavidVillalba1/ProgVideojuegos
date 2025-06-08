@@ -23000,6 +23000,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2076365574}
+  - component: {fileID: 2076365575}
   m_Layer: 0
   m_Name: Waypoints
   m_TagString: Untagged
@@ -23051,6 +23052,136 @@ Transform:
   - {fileID: 373495989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2076365575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076365573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb6cad6c20f4f6448981c06a6344610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackSections:
+  - waypoints:
+    - {fileID: 407553339}
+    - {fileID: 1089259918}
+    - {fileID: 922424669}
+  - waypoints:
+    - {fileID: 1627455547}
+    - {fileID: 1384696694}
+    - {fileID: 1619128682}
+  - waypoints:
+    - {fileID: 398550496}
+    - {fileID: 1384696694}
+    - {fileID: 1567520608}
+  - waypoints:
+    - {fileID: 1391712477}
+    - {fileID: 596061885}
+    - {fileID: 1052927115}
+  - waypoints:
+    - {fileID: 1057627988}
+    - {fileID: 512602788}
+    - {fileID: 1116267505}
+  - waypoints:
+    - {fileID: 842824924}
+    - {fileID: 246914261}
+    - {fileID: 1366086598}
+  - waypoints:
+    - {fileID: 195797014}
+    - {fileID: 445517119}
+    - {fileID: 215027671}
+  - waypoints:
+    - {fileID: 90277832}
+    - {fileID: 1760155983}
+    - {fileID: 979360140}
+  - waypoints:
+    - {fileID: 1123577153}
+    - {fileID: 502952020}
+    - {fileID: 723184190}
+  - waypoints:
+    - {fileID: 16035462}
+    - {fileID: 260550306}
+    - {fileID: 1772534363}
+  - waypoints:
+    - {fileID: 824885714}
+    - {fileID: 1211053145}
+    - {fileID: 1072136213}
+  - waypoints:
+    - {fileID: 963449465}
+    - {fileID: 1058581191}
+    - {fileID: 1666317692}
+  - waypoints:
+    - {fileID: 536744949}
+    - {fileID: 1390542734}
+    - {fileID: 1865657349}
+  - waypoints:
+    - {fileID: 1278265725}
+    - {fileID: 1575922497}
+    - {fileID: 581037790}
+  - waypoints:
+    - {fileID: 399288914}
+    - {fileID: 1023307205}
+    - {fileID: 589873729}
+  - waypoints:
+    - {fileID: 399288914}
+    - {fileID: 689809939}
+    - {fileID: 1045996789}
+  - waypoints:
+    - {fileID: 1412121375}
+    - {fileID: 87154593}
+    - {fileID: 106796803}
+  - waypoints:
+    - {fileID: 1148489026}
+    - {fileID: 2056353456}
+    - {fileID: 565059469}
+  - waypoints:
+    - {fileID: 2033046591}
+    - {fileID: 1381351501}
+    - {fileID: 2049943029}
+  - waypoints:
+    - {fileID: 2048231693}
+    - {fileID: 40540058}
+    - {fileID: 147890234}
+  - waypoints:
+    - {fileID: 1243065938}
+    - {fileID: 631396955}
+    - {fileID: 777775602}
+  - waypoints:
+    - {fileID: 506112433}
+    - {fileID: 468372131}
+    - {fileID: 53198207}
+  - waypoints:
+    - {fileID: 2054048229}
+    - {fileID: 1046889566}
+    - {fileID: 1834826999}
+  - waypoints:
+    - {fileID: 544608429}
+    - {fileID: 712301878}
+    - {fileID: 1723072398}
+  - waypoints:
+    - {fileID: 1353392087}
+    - {fileID: 2024738086}
+    - {fileID: 1502311814}
+  - waypoints:
+    - {fileID: 1101677352}
+    - {fileID: 1561421267}
+    - {fileID: 1532416690}
+  - waypoints:
+    - {fileID: 500614576}
+    - {fileID: 2016668288}
+    - {fileID: 1655838398}
+  - waypoints:
+    - {fileID: 500614576}
+    - {fileID: 1923202588}
+    - {fileID: 1920393049}
+  - waypoints:
+    - {fileID: 1147754268}
+    - {fileID: 494135404}
+    - {fileID: 827680297}
+  reachThreshold: 3
 --- !u!1 &2082269141
 GameObject:
   m_ObjectHideFlags: 0
