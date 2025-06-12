@@ -60,7 +60,18 @@ public class AIWaypointNavigator : MonoBehaviour
         }
 
         currentTarget = options[Random.Range(0, options.Count)];
+        Debug.Log($"Sección {currentSection}, objetivo: {currentTarget.name}");
         if (agent.isOnNavMesh)
             agent.SetDestination(currentTarget.position);
     }
+
+    public void SetSpeed(float speed)
+    {
+        if (agent != null)
+        {
+            agent.speed = speed;
+            Debug.Log($"Velocidad del NPC ajustada a {speed}");
+        }
+    }
+
 }

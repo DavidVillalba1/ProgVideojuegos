@@ -23,6 +23,10 @@ public class CarController : MonoBehaviour
 
     [Header("Cámara")]
     public Camera followCamera;
+    public float cameraOffsetZ = -5f;
+    public float cameraOffsetY = 2f;
+    public float cameraLookAtZ = 0f;
+    public float cameraLookAtY = 1f;
 
     private Rigidbody rb;
     private float currentAcceleration = 0f;
@@ -64,7 +68,7 @@ public class CarController : MonoBehaviour
         if (Input.GetKey(accelerateKey))
         {
             currentAcceleration = Mathf.Lerp(currentAcceleration, acceleration, Time.deltaTime * accelerationSmoothing);
-            rb.AddForce(-transform.forward * currentAcceleration, ForceMode.Acceleration);
+            rb.AddForce(transform.forward * currentAcceleration, ForceMode.Acceleration);
         }
         else
         {
@@ -84,7 +88,7 @@ public class CarController : MonoBehaviour
         // Marcha atrás
         if (Input.GetKey(reverseKey))
         {
-            rb.AddForce(transform.forward * reverseSpeed, ForceMode.Acceleration);
+            rb.AddForce(-transform.forward * reverseSpeed, ForceMode.Acceleration);
         }
 
         // Girar
@@ -108,8 +112,8 @@ public class CarController : MonoBehaviour
     {
         if (followCamera == null) return;
 
-        followCamera.transform.position = transform.position + transform.forward * 7f + Vector3.up * 3f;
-        followCamera.transform.LookAt(transform.position + transform.forward * 5f + Vector3.up * 2f);
+        followCamera.transform.position = transform.position + transform.forward * cameraOffsetZ + Vector3.up * cameraOffsetY;
+        followCamera.transform.LookAt(transform.position + transform.forward * cameraLookAtZ + Vector3.up * cameraLookAtY);
     }
 
     private void ApplyGrip()
