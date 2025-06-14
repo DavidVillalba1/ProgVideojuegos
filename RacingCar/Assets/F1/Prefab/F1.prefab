@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 7993137687825656007}
   - component: {fileID: 3946924110496327801}
   - component: {fileID: 2109076040983680643}
+  - component: {fileID: 5014087849057627769}
   m_Layer: 0
   m_Name: F1
   m_TagString: Untagged
@@ -922,3 +923,21 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
   reachThreshold: 3
+  totalLaps: 2
+--- !u!114 &5014087849057627769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d11e470b76d674491e778037907ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLap: 0
+  currentCheckpointIndex: 0
+  distanceToNextCheckpoint: 0
+  finished: 0
+  isPlayer: 0
