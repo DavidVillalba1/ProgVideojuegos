@@ -26892,6 +26892,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6826039174270275373, guid: 9c2e043a903ee0c4b8ea7e7d294bc969, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826039174270275373, guid: 9c2e043a903ee0c4b8ea7e7d294bc969, type: 3}
+      propertyPath: acceleration
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6826039174270275373, guid: 9c2e043a903ee0c4b8ea7e7d294bc969, type: 3}
       propertyPath: followCamera
       value: 
       objectReference: {fileID: 354533037}
