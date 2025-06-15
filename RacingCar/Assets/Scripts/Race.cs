@@ -153,6 +153,8 @@ public class RaceManager : MonoBehaviour
 
     private void SaveResult(int pos)
     {
+        if (pos < 1 || pos > 8) return;
+
         string key = $"Position_{pos}";
         int prev   = PlayerPrefs.GetInt(key, 0);
         PlayerPrefs.SetInt(key, prev + 1);
