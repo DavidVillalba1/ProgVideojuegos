@@ -86,9 +86,15 @@ public class RaceManager : MonoBehaviour
 
     private void StartRace()
     {
+        var npcNavigator = npcCars[0].GetComponent<AIWaypointNavigator>();
+        var playerTracker = playerCar.GetComponent<PlayerWaypointTracker>();
+
+        playerTracker.trackSections = npcNavigator.trackSections;
+
         playerCar.GetComponent<CarController>().enabled = true;
         foreach (var npc in npcCars)
             npc.GetComponent<AIWaypointNavigator>().enabled = true;
+
         raceStarted = true;
     }
 
