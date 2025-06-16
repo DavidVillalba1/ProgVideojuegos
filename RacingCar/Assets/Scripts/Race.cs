@@ -100,6 +100,7 @@ public class RaceManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Update activo");
         if (!raceStarted || raceEnded) return;
 
         UpdatePlayerPosition();
@@ -130,13 +131,22 @@ public class RaceManager : MonoBehaviour
 
     private void CheckIfPlayerFinished()
     {
+        Debug.Log("CheckIfPlayerFinished() llamado");
         CarRaceData player = allCars.Find(c => c.isPlayer);
-        if (player.currentLap >= 2 && player.finished)
+        if (player == null)
+        {
+            Debug.LogWarning("CarRaceData del jugador no encontrado");
+            return;
+        }
+        Debug.Log($"Vueltas: {player.currentLap}, ¿finished?: {player.finished}");
+        //player.currentLap >= 2 && 
+        if (player.finished)
         {
             raceEnded = true;
             int finalPos = GetPlayerFinalPosition();
             SaveResult(finalPos);
-            SceneManager.LoadScene("Menu");
+            Debug.Log($"Carrera finalizada. Posición final: {finalPos}º");
+            SceneManager.LoadScene("SampleScene");
         }
     }
 

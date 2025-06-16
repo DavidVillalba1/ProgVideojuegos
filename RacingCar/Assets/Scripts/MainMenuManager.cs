@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class MainMenuManager : MonoBehaviour
     {   
         PlayClickSound();
         Debug.Log("Start Game");
-        // cargar la escena del juego
+        SceneManager.LoadScene("complete_track_demo");
     } 
     
     private void PlayClickSound()

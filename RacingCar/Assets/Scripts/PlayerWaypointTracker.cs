@@ -63,14 +63,14 @@ public class PlayerWaypointTracker : MonoBehaviour
 
         if (currentSection >= trackSections.Count)
         {
-            currentSection = 0;
             currentLap++;
-
+            currentSection = 0;
             if (currentLap >= 2)
             {
                 raceData.finished = true;
                 return;
             }
+
         }
 
         currentTarget = GetWaypointForSection(currentSection);
