@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerWaypointTracker : MonoBehaviour
 {
     public List<WaypointGroup> trackSections;
-    public float threshold = 5f; // Distancia mínima para "pasar" un punto
+    public float threshold = 5f; // Distancia mï¿½nima para "pasar" un punto
 
     private int currentSection = 0;
     private int currentLap = 0;
