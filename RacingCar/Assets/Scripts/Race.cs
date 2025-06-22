@@ -21,12 +21,18 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private GameObject pressKeyPanel;
     [SerializeField] private TextMeshProUGUI countdownText;
 
+    [Header("Semáforo de salida")]
+    [SerializeField] private Renderer[] trafficLights; 
+    [SerializeField] private Material redMaterial;
+    [SerializeField] private Material greenMaterial;
+
     [Header("UI carrera")]
     [SerializeField] private TextMeshProUGUI positionText;
 
     private List<CarRaceData> allCars = new();
     private bool raceStarted = false;
     private bool raceEnded   = false;
+
 
     private void Start()
     {
@@ -80,6 +86,7 @@ public class RaceManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         countdownText.text = "¡GO!";
+        CambiarSemaforoAVerde();
         yield return new WaitForSeconds(1f);
         countdownText.gameObject.SetActive(false);
     }
@@ -170,4 +177,13 @@ public class RaceManager : MonoBehaviour
         PlayerPrefs.SetInt(key, prev + 1);
         PlayerPrefs.Save();
     }
+
+    private void CambiarSemaforoAVerde()
+    {
+        foreach (var light in trafficLights)
+        {
+            light.material = new Material(greenMaterial);
+        }
+    }
+
 }

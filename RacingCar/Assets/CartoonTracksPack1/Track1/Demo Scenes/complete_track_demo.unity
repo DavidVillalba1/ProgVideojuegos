@@ -6100,6 +6100,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62d38c3b81a175f4585f3bb99fca3071, type: 3}
+--- !u!23 &475674308 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 195606623412038258, guid: d7c9b08657eabc54db441e4854d7996e, type: 3}
+  m_PrefabInstance: {fileID: 5985644896948575869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &476556423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100016, guid: 62d38c3b81a175f4585f3bb99fca3071, type: 3}
@@ -6429,6 +6434,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4941019111839346449, guid: 7190964c445f2324f9f142d693d3a05c, type: 3}
+--- !u!23 &480510092 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3384025575181329629, guid: d7c9b08657eabc54db441e4854d7996e, type: 3}
+  m_PrefabInstance: {fileID: 5985644896948575869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488989020
 GameObject:
   m_ObjectHideFlags: 0
@@ -16072,6 +16082,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4941019111839346449, guid: 7190964c445f2324f9f142d693d3a05c, type: 3}
+--- !u!23 &1285915074 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2645786054103656596, guid: d7c9b08657eabc54db441e4854d7996e, type: 3}
+  m_PrefabInstance: {fileID: 5985644896948575869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1294110146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2834320985844681631, guid: 2953943eb6ab8e24081b12ab3f22a4b3, type: 3}
@@ -18372,6 +18387,12 @@ MonoBehaviour:
   startKey: 32
   pressKeyPanel: {fileID: 1557482214}
   countdownText: {fileID: 655996790}
+  trafficLights:
+  - {fileID: 480510092}
+  - {fileID: 475674308}
+  - {fileID: 1285915074}
+  redMaterial: {fileID: 2100000, guid: ec63e2f99ff7d0c4ba51bea1b8e48be6, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 14ff38a20eedf2f4b9abe95b149d83df, type: 2}
   positionText: {fileID: 1923446440}
 --- !u!4 &1513722482
 Transform:

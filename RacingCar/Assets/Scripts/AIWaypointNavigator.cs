@@ -16,6 +16,8 @@ public class AIWaypointNavigator : MonoBehaviour
     private NavMeshAgent agent;
     private CarRaceData  raceData;
 
+    private System.Random rng;  // generador de números aleatorios
+
     private int currentSection = 0;  // índice del checkpoint/sección
     private int currentLap     = 0;  // vueltas completas
     private Transform currentTarget;
@@ -32,6 +34,7 @@ public class AIWaypointNavigator : MonoBehaviour
 
     private void Start()
     {
+        rng = new System.Random(GetInstanceID());
         SetNextTarget();
         agent.updateRotation = false;   // rotación manual tipo coche
     }
@@ -109,7 +112,8 @@ public class AIWaypointNavigator : MonoBehaviour
             return;
         }
 
-        currentTarget = options[Random.Range(0, options.Count)];
+        int index = rng.Next(options.Count);
+        currentTarget = options[index];
         if (agent.isOnNavMesh)
             agent.SetDestination(currentTarget.position);
     }
