@@ -29,6 +29,10 @@ public class RaceManager : MonoBehaviour
     [Header("UI carrera")]
     [SerializeField] private TextMeshProUGUI positionText;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip startRaceClip;
+
     private List<CarRaceData> allCars = new();
     private bool raceStarted = false;
     private bool raceEnded   = false;
@@ -87,6 +91,7 @@ public class RaceManager : MonoBehaviour
         }
         countdownText.text = "¡GO!";
         CambiarSemaforoAVerde();
+        audioSource.PlayOneShot(startRaceClip);
         yield return new WaitForSeconds(1f);
         countdownText.gameObject.SetActive(false);
     }

@@ -16,7 +16,7 @@ public class CarController : MonoBehaviour
     public float turnSpeed = 50f;
     public float reverseSpeed = 10f;
     public float maxSpeed = 50f;
-    public float accelerationSmoothing = 2f; // Qué tan rápido acelera progresivamente
+    public float accelerationSmoothing = 2f;
 
     [Header("Downforce")]
     public float downforce = 50f;
@@ -27,6 +27,10 @@ public class CarController : MonoBehaviour
     public float cameraOffsetY = 2f;
     public float cameraLookAtZ = 0f;
     public float cameraLookAtY = 1f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource engineAudioSource;
+    [SerializeField] private AudioClip accelerationClip;
 
     private Rigidbody rb;
     private float currentAcceleration = 0f;
@@ -63,8 +67,6 @@ public class CarController : MonoBehaviour
     private void HandleMovement()
     {
         float currentSpeed = Vector3.Dot(rb.velocity, transform.forward);
-
-        // Aceleración progresiva
         if (Input.GetKey(accelerateKey))
         {
             currentAcceleration = Mathf.Lerp(currentAcceleration, acceleration, Time.deltaTime * accelerationSmoothing);
@@ -73,6 +75,22 @@ public class CarController : MonoBehaviour
         else
         {
             currentAcceleration = 0f;
+        }
+        if (rb.velocity.magnitude > 0.5f) 
+        {
+            if (!engineAudioSource.isPlaying)
+            {
+                engineAudioSource.clip = accelerationClip;
+                engineAudioSource.loop = true;
+                engineAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (engineAudioSource.isPlaying)
+            {
+                engineAudioSource.Stop();
+            }
         }
 
         // Frenar (drag)
